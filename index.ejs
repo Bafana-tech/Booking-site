@@ -1,0 +1,177 @@
+<html lang="en">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@40;700&display=swap');
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topnav{
+            overflow: hidden;
+            background-color: #333;
+    
+        }
+        .topnav a{
+            float: left;
+            color: #f2f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnava:hover{
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active{
+            background-color: royalblue;
+            color: white;
+        }
+        .user-details{
+            background-color: white;
+            color:black;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .copyright{
+            background-color: #333;
+            color: #ddd;
+        }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Home | <%= title %></title>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/enquire">Enquiries</a>
+        <a href="/about">About</a>
+    </div>
+
+    
+    <script>
+        const rooms = [
+        {room: 'Room 1', start: '2021-12-09', end: '2021-12-09' },
+        {room: 'Room 2', start: '2021-12-09', end: '2021-12-15'},
+        {room: 'Room 3', start: '2021-12-09', end: '2021-12-20'},
+        {room: 'Room 4', start: '2021-12-09', end: '2021-12-30'},
+];
+
+
+
+        function othername(start, end){
+
+            var nfree = 0;
+            var sum = 0;
+            var i = 0;
+            rooms.forEach(room =>{
+
+            if(room.end < start){
+                nfree++;
+              
+               
+            }
+
+
+        
+        });
+
+            if(document.getElementById('CheckInDate').value > document.getElementById('CheckOutDate').value){
+                var status = "Incorrect date";
+                document.getElementById("count").innerHTML = status;
+            }
+            if(nfree == i){
+
+                var status = "";
+                document.getElementById("status").innerHTML = "";
+                document.getElementById("welcome").innerHTML = status;
+                document.getElementById("status").innerHTML = "";
+                document.getElementById('full').innerHTML = "";
+
+                var status = "fully booked";
+                document.getElementById("status").innerHTML = "Status";
+                document.getElementById("welcome").innerHTML = status;  // Displaying to my page the status if no room
+            }
+
+            
+
+            
+
+            else{
+
+                document.getElementById("status").innerHTML = "";
+                document.getElementById('full').innerHTML = "";
+                var status = "";
+                document.getElementById("status").innerHTML = "";
+                document.getElementById("welcome").innerHTML = status;
+
+                document.getElementById("status").innerHTML = "Status";
+                document.getElementById('full').innerHTML = "Total rooms available " + nfree;
+                
+                
+
+            }          
+           
+        }
+    </script>
+    
+</head>
+<body>
+    <br>
+    <br>
+
+   
+    <center>
+    <br>
+    <form>
+        <br>
+        Check in date <input type="date" id="CheckInDate" name="CheckInDate">
+        Check out date <input type="date" id="CheckOutDate" name="CheckOutDate">
+        <input type="button" value="Submit"  onclick =  "othername(document.getElementById('CheckInDate').value, document.getElementById('CheckOutDate').value)" style="background-color: aqua;">
+    </form>
+    <br>
+    <br>
+    
+    </center>
+    
+
+ <div class="blogs content">
+     <center>
+     <p id="status"></p>
+     <p id="welcome"></p>
+     <p id="full"></p>
+     <a href='/details'> </a>
+     
+    </center>
+
+ </div>
+ <center>
+<div class="user-details" >
+    <p>Only confirm booking when the date has available rooms</p>
+    <form action="send" method="post">
+        <br>
+        Name 
+        <input type="text" id="Name" placeholder="Name" maxlength="40" name="name">
+        <br>
+        Address  <input type="text" placeholder="Address"  id="Address" name="address">
+        <br>
+        Phone    <input type="text" placeholder="phone"  id="Phone" name="phone">
+        <br>
+        Email    <input type="email" placeholder="example@gmail.com" id="" name="email">
+        <br>
+            <input type="submit" value="Confirm Booking" style="background-color: aqua;" >
+        
+    </form>
+</div>
+</center>
+
+<footer>
+    
+    <div class="copyright">
+        <hr>
+        © Copyright 2021
+    </div>
+</footer>
+    
+</body>
+</html>
