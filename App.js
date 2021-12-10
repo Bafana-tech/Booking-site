@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //Listening to requests
-Port =process.env.Port || 3000 
+Port =process.env.PORT || 3000 
 app.listen(Port);
 
 
